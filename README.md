@@ -49,7 +49,7 @@ These are the python libraries i have imported for this project.
 - Then **converted some numerical values which was originally in object datatype to float datatype** (which was quite tricky as it contained some symbols between those values and some null values are mentioned as '-' )
 
 - Then exported the cleaned dataframe to a new csv file top_n_countries.csv using pd.to_csv() function
-
+---
 ### **Creating and exploring commodity_group dataframe**
 
 - This dataframe was created using the data from excel file named 'ftpa-Commodity Group-wise.xlsx'
@@ -57,14 +57,14 @@ These are the python libraries i have imported for this project.
 - Changed the object datatype to float datatype for numerical columns.
 - Checked the percentile values of a column to check outliers using **commodity_group.describe(percentiles = np.arange(0.75,1,0.02 )).round(2)**
 - Then cleaned dataframe was exported to a new csv file
-
+---
 ### **Creating and exploring commodity_wise_export dataframe**
 
 - This dataframe was created using the data from excel file named 'ftspcc-commoditywise-export.xlsx'
 - Used above mentioned exploration methods and also checked unique values of the dataframe.
 - Changed the object datatype to float datatype for numerical columns.
 - Exported the cleaned dataframe to a new csv file
-
+---
 ### **Creating and exploring commodity_wise_import dataframe**
 
 - This dataframe was created using the data from excel file named 'ftspcc-commoditywise-import.xlsx'
@@ -87,4 +87,47 @@ These are the python libraries i have imported for this project.
 - Created custom column names to add the year in front of column names.
 - Changed the object datatype to float datatype for numerical columns.
 - Exported the cleaned dataframe to a new csv file
+---
 
+## **Insights Generation**
+
+### **Merged dataframe (conuntry_ttrade_23_24 and country_ttrade_24_25)
+
+- Merged country_ttrade and country_ttrade_23_24 as it both contains same data for different years
+- Created new columns import_growth & export_growth
+- Found out the increased export %, import % and growth %
+- only 2 countries have increased in import over the year
+- only 1 country have increased total trade value over the year
+
+### **Country_ttrade23_24**
+
+- Filtered Top 10 countries with high number of tea export values in the year 2023-2024 and low number of export values.
+- Created a barplot for the top 10 countries and bottom 10 countries using seaborn.
+
+- Created the same of countries with highest import values and lowest import values
+
+- Discovered 42 countries have export values, that are greather than average export values of all countries.
+
+- Created a barplot for countries with high trade balance value and low trade balance value.
+
+- Created four box plot with subplots for understanding the distribution of dataset values of import, export, total trade and trade balance.
+
+### **merged dataframe (commodity_wise_export and commodity_wise_import)**
+
+- Merged commmodity_wise_export and commodity_wise_import using pd.merge as it have same values.
+- Created new columns for trade balance for Apr-May 2024 export and import and Apr-May 2025 export and import values.
+- Created new columns for export and import growth_pct over the period of Apr-May 2024 and Apr-May 2025
+- Plotted a barplot with seaborn for top 10 commodities with increased export growth pct value and increased import growth pct value
+
+### **commodity_group_dataframe**
+
+- Created a treeplot using plotly with values as Apr-May 2025 (P) for identidying top and bottom commodities
+- we can see the values in the treeplot by hovering the mousecursor over plot boxes.
+
+### **top_100_countries dataframe**
+
+- plotted a barchart using plotly for top 10 countries with highest trade balance
+
+- plotted a barchart using plotly for top 10 countries with highest export values
+
+- plotted a barchart using plotly for top 10 countries with highest import values
